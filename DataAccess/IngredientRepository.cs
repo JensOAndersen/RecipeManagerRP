@@ -10,7 +10,7 @@ namespace DataAccess
     {
         public List<Ingredient> GetAllIngredients()
         {
-            string q = "SELECT * FROM Ingredients";
+            string q = "SELECT * FROM Ingredients;";
             List<Ingredient> ingredients = new List<Ingredient>();
 
             DataTable dt = ExecuteQuery(q);
@@ -32,7 +32,12 @@ namespace DataAccess
 
         public int NewIngredient(Ingredient ingredient)
         {
-            return 0;
+            string q = 
+                "INSERT INTO Ingredients ([Name],Calories) " +
+                "Values " +
+                $"('{ingredient.Name}',${ingredient.Calories});";
+
+            return ExecuteNonQuery(q);
         }
     }
 }

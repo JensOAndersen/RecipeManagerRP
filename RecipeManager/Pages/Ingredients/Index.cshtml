@@ -5,5 +5,19 @@
     Layout = "~/Pages/_Layout.cshtml";
 }
 
-<h1>CreateIngredient</h1>
+<h1>Ingredients</h1>
 
+<a asp-page="/Ingredients/Create">Add Ingredients</a>
+<table>
+    @foreach (var item in Model.Ingredients)
+    {
+        <tr>
+            <td>
+                @item.Name
+            </td>
+            <td>
+                @item.Calories
+            </td>
+        </tr>
+    }
+</table>
