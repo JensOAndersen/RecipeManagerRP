@@ -1,0 +1,19 @@
+﻿CREATE TABLE Ingredients(
+    Id INTEGER NOT NULL IDENTITY(1,1) PRIMARY KEY,
+    [Name] VARCHAR(50) NOT NULL,
+    Calories INTEGER NOT NULL DEFAULT(0)
+);
+
+CREATE TABLE Recipes(
+    Id INTEGER NOT NULL IDENTITY(1,1) PRIMARY KEY,
+    [Name] VARCHAR(50) NOT NULL,
+    [Description] VARCHAR(MAX)
+);
+
+CREATE TABLE IngredientsInRecipes(
+    IngredientId INTEGER NOT NULL FOREIGN KEY REFERENCES Ingredients(Id),
+    RecipeId INTEGER NOT NULL FOREIGN KEY REFERENCES Recipes(Id),
+    Amount INTEGER,
+    Unit VARCHAR(50),
+    CONSTRAINT PK_Ingredient_Recipe PRIMARY KEY (IngredientId, RecipeId)
+);
