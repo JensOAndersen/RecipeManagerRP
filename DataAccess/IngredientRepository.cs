@@ -6,7 +6,7 @@ using Entities;
 
 namespace DataAccess
 {
-    public class DBAccess : CommonDBAccess
+    public class IngredientRepository : CommonDBAccess
     {
         public List<Ingredient> GetAllIngredients()
         {
@@ -28,6 +28,11 @@ namespace DataAccess
             }
 
             return ingredients;
+        }
+
+        public int NewIngredient(Ingredient ingredient)
+        {
+            return 0;
         }
     }
 }
