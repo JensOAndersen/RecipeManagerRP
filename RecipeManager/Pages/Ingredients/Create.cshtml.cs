@@ -26,9 +26,10 @@ namespace RecipeManager.Pages.Ingredients
 
         }
 
-        public void OnPost()
+        public IActionResult OnPost()
         {
             ingredientRepository.NewIngredient(Ingredient);
+            return Redirect("/Ingredients/Index");
         }
     }
 }

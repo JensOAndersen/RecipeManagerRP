@@ -23,5 +23,11 @@ namespace RecipeManager.Pages.Ingredients
         {
             Ingredients = repo.GetAllIngredients();
         }
+
+        public IActionResult OnGetDelete(int id)
+        {
+            repo.DeleteIngredient(id);
+            return Redirect("/Ingredients/Index");
+        } 
     }
 }

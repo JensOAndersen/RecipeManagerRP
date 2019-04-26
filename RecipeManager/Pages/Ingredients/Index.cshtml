@@ -9,6 +9,16 @@
 
 <a asp-page="/Ingredients/Create">Add Ingredients</a>
 <table>
+    <thead>
+        <tr>
+            <td>
+                Navn
+            </td>
+            <td>
+                Ingrediens Type
+            </td>
+        </tr>
+    </thead>
     @foreach (var item in Model.Ingredients)
     {
         <tr>
@@ -17,6 +27,13 @@
             </td>
             <td>
                 @item.Type
+            </td>
+            <td>
+                <a asp-page="./Index"
+                   asp-page-handler="Delete"
+                   asp-route-id="@item.Id">
+                    Delete
+                </a>
             </td>
         </tr>
     }

@@ -30,6 +30,13 @@ namespace DataAccess
             return ingredients;
         }
 
+        public int DeleteIngredient(int id)
+        {
+            string q = $"DELETE FROM Ingredients WHERE Id = {id}";
+
+            return ExecuteNonQuery(q);
+        }
+
         public int NewIngredient(Ingredient ingredient)
         {
             string q = 
