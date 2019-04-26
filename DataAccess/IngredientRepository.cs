@@ -19,7 +19,7 @@ namespace DataAccess
                 "IngredientsInRecipes.RecipeId, " +
                 "IngredientsInRecipes.Amount, " +
                 "IngredientsInRecipes.Unit " +
-                "FROM IngredientsInRecipes" +
+                "FROM IngredientsInRecipes " +
                 "INNER JOIN Ingredients ON IngredientsInRecipes.IngredientId = Ingredients.Id;";
 
             DataTable ingredientDetails = ExecuteQuery(q);
@@ -28,12 +28,12 @@ namespace DataAccess
             {
                 ingredients.Add(new Ingredient()
                 {
-                    Id = (int)row["Id"],
-                    RecipeId = (int)row["IngredientId"],
+                    Id = (int)row["IngredientId"],
+                    RecipeId = (int)row["RecipeId"],
                     Type = (IngredientType)row["Type"],
                     Amount = (int)row["Amount"],
                     Unit = (string)row["Unit"],
-                    Name = (string)row["Name"]
+                    Name = (string)row["IngredientName"]
                 });
             }
 

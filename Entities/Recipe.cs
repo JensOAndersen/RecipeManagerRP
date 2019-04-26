@@ -8,12 +8,16 @@ namespace Entities
         private string name;
         private string description;
         private int id;
-        private List<Ingredient> list;
+        private List<Ingredient> ingredients;
 
+        public Recipe()
+        {
+            Ingredients = new List<Ingredient>();
+        }
         public List<Ingredient> Ingredients
         {
-            get { return list; }
-            set { list = value; }
+            get { return ingredients; }
+            set { ingredients = value; }
         }
 
         public int Id
