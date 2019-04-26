@@ -5,5 +5,28 @@
     Layout = "~/Pages/_Layout.cshtml";
 }
 
-<h1>CreateRecipe</h1>
+<h1>Recipes</h1>
 
+<table>
+    <thead>
+        <tr>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+        </tr>
+    </thead>
+    @foreach (var item in Model.Recipes)
+    {
+        <tr>
+            <td>
+                @item.Name
+            </td>
+            <td>
+                @item.Description
+            </td>
+        </tr>
+    }
+</table>

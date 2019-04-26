@@ -11,9 +11,17 @@ namespace RecipeManager.Pages.Recipes
 {
     public class IndexModel : PageModel
     {
+        RecipeRepository repository;
+        public List<Recipe> Recipes { get; set; }
+
+        public IndexModel()
+        {
+            repository = new RecipeRepository();
+        }
+
         public void OnGet()
         {
-
+            Recipes = repository.GetAllRecipes();
         }
     }
 }
