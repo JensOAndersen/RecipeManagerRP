@@ -1,4 +1,6 @@
 ﻿@page
+@using Entities
+
 @model RecipeManager.Pages.Ingredients.CreateModel
 @{
     ViewData["Title"] = "Create";
@@ -19,10 +21,12 @@
         </tr>
         <tr>
             <td>
-                <label for="Ingredient.Calories">Calories</label>
+                <label for="Ingredient.Type">Type</label>
             </td>
             <td>
-                <input type="number" name="Ingredient.Calories" />
+                <select asp-for="Ingredient.Type" asp-items="Html.GetEnumSelectList<IngredientType>()">
+                    <option value="">Pick One</option>
+                </select>
             </td>
         </tr>
         <tr>

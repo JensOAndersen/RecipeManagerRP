@@ -22,7 +22,7 @@ namespace DataAccess
                     {
                         Id = (int)row["Id"],
                         Name = (string)row["Name"],
-                        Calories = (int)row["Calories"]
+                        Type = (IngredientType)((int)row["Type"])
                     }
                 );
             }
@@ -33,9 +33,9 @@ namespace DataAccess
         public int NewIngredient(Ingredient ingredient)
         {
             string q = 
-                "INSERT INTO Ingredients ([Name],Calories) " +
+                "INSERT INTO Ingredients ([Name],[Type]) " +
                 "Values " +
-                $"('{ingredient.Name}',${ingredient.Calories});";
+                $"('{ingredient.Name}',${(int)ingredient.Type});";
 
             return ExecuteNonQuery(q);
         }

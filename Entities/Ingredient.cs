@@ -8,7 +8,7 @@ namespace Entities
     {
         private int id;
         private string name;
-        private int calories;
+        private IngredientType type;
         private int amount;
         private string unit;
 
@@ -24,10 +24,10 @@ namespace Entities
             set { amount = value; }
         }
 
-        public int Calories
+        public IngredientType Type
         {
-            get { return calories; }
-            set { calories = value; }
+            get { return type; }
+            set { type = value; }
         }
 
         public string Name
