@@ -8,6 +8,37 @@ namespace DataAccess
 {
     public class IngredientRepository : CommonDBAccess
     {
+        internal List<Ingredient> GetAllIngredientsFull()
+        {
+            List<Ingredient> ingredients = new List<Ingredient>();
+            string q =
+                "SELECT " +
+                "Ingredients.Name AS IngredientName, " +
+                "Ingredients.Id AS IngredientId, " +
+                "Ingredients.Type, " +
+                "IngredientsInRecipes.RecipeId, " +
+                "IngredientsInRecipes.Amount, " +
+                "IngredientsInRecipes.Unit " +
+                "FROM IngredientsInRecipes" +
+                "INNER JOIN Ingredients ON IngredientsInRecipes.IngredientId = Ingredients.Id;";
+
+            DataTable ingredientDetails = ExecuteQuery(q);
+
+            foreach (DataRow row in ingredientDetails.Rows)
+            {
+                ingredients.Add(new Ingredient()
+                {
+                    Id = (int)row["Id"],
+                    RecipeId = (int)row["IngredientId"],
+                    Type = (IngredientType)row["Type"],
+                    Amount = (int)row["Amount"],
+                    Unit = (string)row["Unit"],
+                    Name = (string)row["Name"]
+                });
+            }
+
+            return ingredients;
+        }
         public List<Ingredient> GetAllIngredients()
         {
             string q = "SELECT * FROM Ingredients;";

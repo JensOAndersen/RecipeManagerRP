@@ -11,6 +11,13 @@ namespace Entities
         private IngredientType type;
         private int amount;
         private string unit;
+        private int recipeId;
+
+        public int RecipeId
+        {
+            get { return recipeId; }
+            set { recipeId = value; }
+        }
 
         public string Unit
         {
