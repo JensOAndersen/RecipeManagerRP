@@ -5,5 +5,47 @@
     Layout = "~/Pages/_Layout.cshtml";
 }
 
-<h1>Detail</h1>
+<h1>@Model.Recipe.Name</h1>
+
+Beskrivelse:
+<p>
+    @Model.Recipe.Description
+</p>
+
+Ingredienser:
+<table>
+    <thead>
+        <tr>
+            <td>
+                Ingredient
+            </td>
+            <td>
+                Amount
+            </td>
+            <td>
+                Kind of Unit
+            </td>
+            <td>
+                Type of Ingredient
+            </td>
+        </tr>
+    </thead>
+    @foreach (var item in Model.Recipe.Ingredients)
+    {
+        <tr>
+            <td>
+                @item.Name
+            </td>
+            <td>
+                @item.Amount
+            </td>
+            <td>
+                @item.Unit
+            </td>
+            <td>
+                @item.Type
+            </td>
+        </tr>
+    }
+</table>
 
