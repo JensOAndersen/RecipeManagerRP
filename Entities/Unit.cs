@@ -4,8 +4,9 @@ using System.Text;
 
 namespace Entities
 {
-    public enum Units
+    public enum Unit
     {
+        Pcs,
         Gram,
         Kg,
         Tsp,

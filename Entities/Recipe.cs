@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Entities
 {
@@ -27,6 +28,7 @@ namespace Entities
             set { id = value; }
         }
 
+        [DataType(DataType.MultilineText)]
         public string Description
         {
             get { return description; }

@@ -8,22 +8,43 @@
 
 <h1>Create</h1>
 <form method="post">
+    <div>
+
+        <label for="Recipe.Name">
+            Name
+        </label>
+        <input type="text" asp-for="Recipe.Name" />
+    </div>
+    <div>
+        <label for="Recipe.Description">
+            Description
+        </label>
+        <textarea asp-for="Recipe.Description"></textarea>
+    </div>
+
 
     <table>
         <thead>
-            <tr></tr>
+            <tr>
+                <td>Ingredient Name</td>
+                <td>Amount</td>
+                <td>Unit</td>
+            </tr>
         </thead>
         <tbody>
             @for (int i = 0; i < Model.Recipe.Ingredients.Count; i++)
             {
                 <tr>
                     <td>@Model.Recipe.Ingredients[i].Name</td>
-                    <td>@Model.Recipe.Ingredients[i].Type</td>
                     <td>
-                        <select asp-for="Recipe.Ingredients[i].Unit" asp-items="Html.GetEnumSelectList<Units>()">
-                            <option value="Pick One"></option>
+                        <input type="number" asp-for="Recipe.Ingredients[i].Amount" />
+                    </td>
+                    <td>
+                        <select asp-for="Recipe.Ingredients[i].Unit" asp-items="Html.GetEnumSelectList<Unit>()">
                         </select>
                     </td>
+                    <td>@Model.Recipe.Ingredients[i].Type</td>
+                    <td><input type="hidden" asp-for="Recipe.Ingredients[i].Id" /></td>
                 </tr>
             }
         </tbody>

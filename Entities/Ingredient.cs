@@ -9,7 +9,7 @@ namespace Entities
         private int id;
         private string name;
         private IngredientType type;
-        private int amount;
+        private Unit amount;
         private string unit;
         private int recipeId;
 
@@ -25,7 +25,7 @@ namespace Entities
             set { unit = value; }
         }
 
-        public int Amount
+        public Unit Amount
         {
             get { return amount; }
             set { amount = value; }

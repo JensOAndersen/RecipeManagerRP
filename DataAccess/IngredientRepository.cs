@@ -31,7 +31,7 @@ namespace DataAccess
                     Id = (int)row["IngredientId"],
                     RecipeId = (int)row["RecipeId"],
                     Type = (IngredientType)row["Type"],
-                    Amount = (int)row["Amount"],
+                    Amount = (Unit)row["Amount"],
                     Unit = (string)row["Unit"],
                     Name = (string)row["IngredientName"]
                 });
