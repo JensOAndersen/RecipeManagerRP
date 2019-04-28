@@ -5,5 +5,30 @@
     Layout = "~/Pages/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Welcome To the cookbook!</h1>
 
+<p>Here is a list of our current recipes</p>
+<table>
+    <thead>
+        <tr>
+            <td>Recipe name</td>
+            <td>Recipe Description</td>
+        </tr>
+    </thead>
+    @foreach (var item in Model.Recipes)
+    {
+        <tr>
+            <td>
+                @item.Name
+            </td>
+            <td>
+                @item.Description
+            </td>
+            <td>
+                <a asp-page="/Recipes/Detail"
+                   asp-route-id="@item.Id">Details</a>
+
+            </td>
+        </tr>
+    }
+</table>
