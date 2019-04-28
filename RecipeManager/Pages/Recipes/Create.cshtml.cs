@@ -27,6 +27,10 @@ namespace RecipeManager.Pages.Recipes
 
         public void OnGet(string ing)
         {
+            string[] ingredientIds = ing.Split(',');
+
+            Recipe = new Recipe();
+
 
         }
     }
