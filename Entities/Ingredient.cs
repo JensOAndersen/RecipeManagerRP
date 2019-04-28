@@ -9,8 +9,8 @@ namespace Entities
         private int id;
         private string name;
         private IngredientType type;
-        private Unit amount;
-        private string unit;
+        private int amount;
+        private Unit unit;
         private int recipeId;
 
         public int RecipeId
@@ -19,13 +19,13 @@ namespace Entities
             set { recipeId = value; }
         }
 
-        public string Unit
+        public Unit Unit
         {
             get { return unit; }
             set { unit = value; }
         }
 
-        public Unit Amount
+        public int Amount
         {
             get { return amount; }
             set { amount = value; }

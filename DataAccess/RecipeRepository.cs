@@ -7,12 +7,15 @@ using System.Text;
 
 namespace DataAccess
 {
-    public class RecipeRepository: CommonDBAccess
+    public class RecipeRepository : CommonDBAccess
     {
         IngredientRepository ingredientRepository;
+        IngredientsInRecipeRepository IiRRepository;
+
         public RecipeRepository()
         {
             ingredientRepository = new IngredientRepository();
+            IiRRepository = new IngredientsInRecipeRepository();
         }
         public List<Recipe> GetAllRecipesWithIngredients()
         {
@@ -52,6 +55,18 @@ namespace DataAccess
             }
 
             return recipes;
+        }
+
+        public void NewRecipe(Recipe recipe)
+        {
+            string query =
+                "INSERT INTO Recipes (Name, Description) output INSERTED.Id " +
+                "VALUES " +
+                $"('{recipe.Name}','{recipe.Description}');";
+
+            int newId = ExecuteNonQueryScalar(query);
+
+            IiRRepository.AddNewIngredientInRecipe(recipe.Ingredients, newId);
         }
     }
 }

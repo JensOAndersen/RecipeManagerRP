@@ -18,6 +18,6 @@ CREATE TABLE IngredientsInRecipes(
     IngredientId INTEGER NOT NULL FOREIGN KEY REFERENCES Ingredients(Id),
     RecipeId INTEGER NOT NULL FOREIGN KEY REFERENCES Recipes(Id),
     Amount INTEGER,
-    Unit VARCHAR(50),
+    Unit Integer,
     CONSTRAINT PK_Ingredient_Recipe PRIMARY KEY (IngredientId, RecipeId)
 );

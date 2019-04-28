@@ -30,5 +30,16 @@ namespace DataAccess
                 return com.ExecuteNonQuery();
             }
         }
+
+        protected int ExecuteNonQueryScalar(string q)
+        {
+            using (SqlConnection con = new SqlConnection(ConString))
+            using (SqlCommand com = new SqlCommand(q, con))
+            {
+                con.Open();
+
+                return (int)com.ExecuteScalar();
+            }
+        }
     }
 }

@@ -6,11 +6,15 @@ namespace Entities
 {
     public enum IngredientType
     {
-        Vegetable,
+        Poultry,
+        Dairy,
+        Grain,
         Pork,
         Beef,
-        Chicken,
-        Fruit,
-        Nut
+        Seafood,
+        Vegetables,
+        Nuts,
+        Fruits,
+        Rootfruits
     }
 }

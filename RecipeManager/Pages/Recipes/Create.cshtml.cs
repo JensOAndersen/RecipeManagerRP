@@ -42,7 +42,9 @@ namespace RecipeManager.Pages.Recipes
 
         public void OnPost()
         {
+            recipeRepository.NewRecipe(Recipe);
 
+            Response.Redirect("/Recipes/");
         }
     }
 }
