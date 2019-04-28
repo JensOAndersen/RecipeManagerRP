@@ -39,6 +39,26 @@ namespace DataAccess
 
             return ingredients;
         }
+
+        public Ingredient GetIngredient(string id)
+        {
+            string q = $"SELECT * FROM Ingredients WHERE Id = {id};";
+
+            DataTable dt = ExecuteQuery(q);
+
+            foreach (DataRow row in dt.Rows)
+            {
+                return new Ingredient()
+                {
+                    Name = (string)row["Name"],
+                    Id = (int)row["Id"],
+                    Type = (IngredientType)row["Type"]
+                };
+            }
+
+            return null;
+        }
+
         public List<Ingredient> GetAllIngredients()
         {
             string q = "SELECT * FROM Ingredients;";

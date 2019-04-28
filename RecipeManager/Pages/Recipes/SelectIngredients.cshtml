@@ -1,0 +1,31 @@
+﻿@page
+@model RecipeManager.Pages.Recipes.SelectIngredientsModel
+@{
+    ViewData["Title"] = "SelectIngredients";
+    Layout = "~/Pages/_Layout.cshtml";
+}
+
+<h1>Select Ingredients</h1>
+
+<form method="post">
+    <table>
+        <thead>
+            <tr>
+                <td>Choose</td>
+                <td>Ingredient</td>
+                <td>Category</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.AllIngredients)
+            {
+                <tr>
+                    <td><input type="checkbox" name="ingredientId" value="@item.Id" /> </td>
+                    <td>@item.Name</td>
+                    <td>@item.Type</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <input type="submit" value="Vælg ingredienser" />
+</form>

@@ -7,11 +7,13 @@
 
 <h1>Recipes</h1>
 
+
+<a asp-page="/Recipes/SelectIngredients">Add recipe</a>
 <table>
     <thead>
         <tr>
-            <td></td>
-            <td></td>
+            <td>Recipe name</td>
+            <td>Recipe Description</td>
         </tr>
     </thead>
     @foreach (var item in Model.Recipes)
