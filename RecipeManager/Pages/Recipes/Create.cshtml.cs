@@ -31,6 +31,17 @@ namespace RecipeManager.Pages.Recipes
 
             Recipe = new Recipe();
 
+            foreach (string sId in ingredientIds)
+            {
+                if (int.TryParse(sId, out int id))
+                {
+                    Recipe.Ingredients.Add(ingredientRepository.GetIngredient(id));
+                }
+            }
+        }
+
+        public void OnPost()
+        {
 
         }
     }

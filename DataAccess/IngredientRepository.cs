@@ -40,7 +40,7 @@ namespace DataAccess
             return ingredients;
         }
 
-        public Ingredient GetIngredient(string id)
+        public Ingredient GetIngredient(int id)
         {
             string q = $"SELECT * FROM Ingredients WHERE Id = {id};";
 
