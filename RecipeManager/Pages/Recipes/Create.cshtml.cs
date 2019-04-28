@@ -25,15 +25,9 @@ namespace RecipeManager.Pages.Recipes
 
         }
 
-        public void OnGet()
+        public void OnGet(string ing)
         {
 
         }
-
-        public void OnGetRecipe()
-        {
-
-        }
-
     }
 }

@@ -12,11 +12,10 @@ namespace RecipeManager.Pages.Recipes
     public class SelectIngredientsModel : PageModel
     {
         private IngredientRepository ingredientRepository;
-        private List<Ingredient> Ingredients;
 
         public List<Ingredient> AllIngredients { get; set; }
 
-        public SelectIngredientsModel()
+        public void OnGet()
         {
             ingredientRepository = new IngredientRepository();
 
@@ -25,19 +24,9 @@ namespace RecipeManager.Pages.Recipes
 
         public IActionResult OnPost()
         {
-            var ids = Request.Form["ingredientId"];
+            var ids = string.Join(',',Request.Form["ingredientId"]);
 
-            //Ingredients = new List<Ingredient>();
-
-            //foreach (var id in ids)
-            //{
-            //    if (int.TryParse(id, out int res))
-            //    {
-            //        Ingredients.Add(ingredientRepository.GetIngredient(id));
-            //    }
-            //}
-
-            return RedirectToPage("Create", "Recipe", ids);
+            return RedirectToPage("Create", new { ing = ids });
         }
     }
 }
