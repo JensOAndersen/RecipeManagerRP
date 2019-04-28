@@ -6,6 +6,7 @@ namespace Entities
 {
     public enum IngredientType
     {
+        NA,
         Poultry,
         Dairy,
         Grain,

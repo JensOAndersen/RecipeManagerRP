@@ -6,6 +6,7 @@ namespace Entities
 {
     public enum Unit
     {
+        NA,
         Pcs,
         Gram,
         Kg,
@@ -13,6 +14,8 @@ namespace Entities
         Cup,
         Spoonfull,
         ml,
+        cl,
+        dcl,
         Liter
     }
 }

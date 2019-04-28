@@ -28,6 +28,12 @@
             <td>
                 <a asp-page="./Detail"
                    asp-route-id="@item.Id">Details</a>
+
+                <a asp-page="./Index"
+                   asp-page-handler="Delete"
+                   asp-route-id="@item.Id">
+                    Delete
+                </a>
             </td>
         </tr>
     }

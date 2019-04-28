@@ -15,8 +15,8 @@ CREATE TABLE Recipes(
 );
 
 CREATE TABLE IngredientsInRecipes(
-    IngredientId INTEGER NOT NULL FOREIGN KEY REFERENCES Ingredients(Id),
-    RecipeId INTEGER NOT NULL FOREIGN KEY REFERENCES Recipes(Id),
+    IngredientId INTEGER NOT NULL FOREIGN KEY REFERENCES Ingredients(Id) ON DELETE CASCADE,
+    RecipeId INTEGER NOT NULL FOREIGN KEY REFERENCES Recipes(Id) ON DELETE CASCADE,
     Amount INTEGER,
     Unit Integer,
     CONSTRAINT PK_Ingredient_Recipe PRIMARY KEY (IngredientId, RecipeId)

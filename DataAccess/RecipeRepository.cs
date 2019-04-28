@@ -33,6 +33,13 @@ namespace DataAccess
             return recipes;
         }
 
+        public void DeleteRecipe(int id)
+        {
+            string query = $"DELETE FROM Recipes WHERE Id = {id};";
+
+            ExecuteNonQuery(query);
+        }
+
         public Recipe GetRecipe(int id)
         {
             return GetAllRecipesWithIngredients().Where(x => x.Id == id).FirstOrDefault();
