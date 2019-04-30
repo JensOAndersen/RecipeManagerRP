@@ -16,6 +16,7 @@ namespace Entities
             Ingredients = new List<Ingredient>();
         }
 
+        [Required]
         public List<Ingredient> Ingredients
         {
             get { return ingredients; }
@@ -28,6 +29,7 @@ namespace Entities
             set { id = value; }
         }
 
+        [Required]
         [DataType(DataType.MultilineText)]
         public string Description
         {
@@ -35,6 +37,7 @@ namespace Entities
             set { description = value; }
         }
 
+        [Required]
         public string Name
         {
             get { return name; }

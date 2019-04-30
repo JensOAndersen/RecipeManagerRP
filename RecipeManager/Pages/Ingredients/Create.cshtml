@@ -17,6 +17,7 @@
             </td>
             <td>
                 <input type="text" name="Ingredient.Name" />
+                <span asp-validation-for="Ingredient.Name"></span>
             </td>
         </tr>
         <tr>
@@ -27,6 +28,7 @@
                 <select asp-for="Ingredient.Type" asp-items="Html.GetEnumSelectList<IngredientType>()">
                     <option value="">Pick One</option>
                 </select>
+                <span asp-validation-for="Ingredient.Type"></span>
             </td>
         </tr>
 
