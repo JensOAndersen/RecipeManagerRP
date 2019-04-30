@@ -40,11 +40,15 @@ namespace RecipeManager.Pages.Recipes
             }
         }
 
-        public void OnPost()
+        public IActionResult OnPost()
         {
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
             recipeRepository.NewRecipe(Recipe);
 
-            Response.Redirect("/Recipes/");
+            return Redirect("/Recipes/");
         }
     }
 }

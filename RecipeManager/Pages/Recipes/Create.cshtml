@@ -14,12 +14,14 @@
             Name
         </label>
         <input type="text" asp-for="Recipe.Name" />
+        <span asp-validation-for="Recipe.Name"></span>
     </div>
     <div>
         <label for="Recipe.Description">
             Description
         </label>
         <textarea asp-for="Recipe.Description"></textarea>
+        <span asp-validation-for="Recipe.Description"></span>
     </div>
 
 
@@ -40,11 +42,15 @@
                         <input type="number" asp-for="Recipe.Ingredients[i].Amount" />
                     </td>
                     <td>
-                        <select asp-for="Recipe.Ingredients[i].Unit" asp-items="Html.GetEnumSelectList<Unit>()">
-                        </select>
+                        <select asp-for="Recipe.Ingredients[i].Unit" asp-items="Html.GetEnumSelectList<Unit>()"></select>
                     </td>
                     <td>@Model.Recipe.Ingredients[i].Type</td>
-                    <td><input type="hidden" asp-for="Recipe.Ingredients[i].Id" /></td>
+                    <td>
+                        <input type="hidden" asp-for="Recipe.Ingredients[i].Id" />
+                        <input type="hidden" asp-for="Recipe.Ingredients[i].Name" />
+                        <input type="hidden" asp-for="Recipe.Ingredients[i].Type" />
+                    </td>
+
                 </tr>
             }
         </tbody>

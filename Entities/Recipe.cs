@@ -16,7 +16,6 @@ namespace Entities
             Ingredients = new List<Ingredient>();
         }
 
-        [Required]
         public List<Ingredient> Ingredients
         {
             get { return ingredients; }
